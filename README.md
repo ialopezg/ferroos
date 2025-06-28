@@ -1,7 +1,7 @@
 # 🎮 FerroOS
 
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/yourusername/ferroos/ci.yml?branch=main)](https://github.com/yourusername/ferroos/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/ialopezg/ferroos/ci.yml?branch=main)](https://github.com/yourusername/ferroos/actions)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20ARM-brightgreen)](docs/engineering-architecture.md)
 
 **FerroOS** – A modular retro gaming OS designed for flexible deployment across handhelds and custom hardware platforms.
