@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: FerroOS CI
 
 on:
@@ -8,10 +7,10 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  docker-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Build Docker image

@@ -1,5 +1,9 @@
 # 🎮 FerroOS
 
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/yourusername/ferroos/ci.yml?branch=main)](https://github.com/yourusername/ferroos/actions)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20ARM-brightgreen)](docs/engineering-architecture.md)
+
 **FerroOS** – A modular retro gaming OS designed for flexible deployment across handhelds and custom hardware platforms.
 Built for extensibility and long-term use in our own embedded infrastructure.
 Built to evolve from a simulated dev environment (via Docker) into a full Buildroot-based OS with custom frontend and
@@ -20,6 +24,8 @@ hardware integration.
 ## 📂 Documentation
 
 - [`docs/developer-guide.md`](docs/developer-guide.md) – How to build and run FerroOS locally using Docker
+- [`docs/engineering-architecture.md`](docs/engineering-architecture.md) – System layers, runtime components, and
+  evolution plan
 - Future docs will cover frontend UI logic, config handling, and hardware flashing
 
 ---
