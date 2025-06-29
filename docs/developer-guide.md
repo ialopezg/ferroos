@@ -27,26 +27,29 @@ ferroos/
 
 ### 2. Build the Docker Image
 
-Run this command to create the image used to simulate FerroOS:
+Use the following command to build the image with a custom tag:
 
 ```bash
-docker build -t ferroos-dev .
+docker build -t ferroos/core .
 ```
+
+This creates a Docker image named `ferroos/core` that will be used in all runtime commands.
 
 ---
 
 ### 3. Run the OS in a Container
 
-You can run the container manually:
+You can run the container manually with a defined name and mounted volumes:
 
 ```bash
 docker run -it --rm \
-  -v $PWD/frontend:/opt/frontend \
-  -v $PWD/roms:/mnt/roms \
-  ferroos-dev
+  --name FerroOS \
+  -v "$PWD/frontend":/opt/frontend \
+  -v "$PWD/roms":/mnt/roms \
+  ferroos/core
 ```
 
-Or use the `run.sh` script:
+Or simply use the provided helper script:
 
 ```bash
 ./run.sh
@@ -88,26 +91,22 @@ chmod +x frontend/init.sh
 
 ### 6. What's Happening Behind the Scenes
 
-| Host Path       | Container Path    | Purpose                |
-|------------------|-------------------|-------------------------|
-| `./frontend/`    | `/opt/frontend/`  | Entry point for frontend logic |
+| Host Path       | Container Path    | Purpose                         |
+|------------------|-------------------|----------------------------------|
+| `./frontend/`    | `/opt/frontend/`  | Entry point for frontend logic  |
 | `./roms/`        | `/mnt/roms/`      | Folder where ROM files are scanned |
 
 ---
 
-### 7. Clean Up and Rebuild (Optional)
+### 7. Rebuild the Docker Image (After Changes)
 
-To rebuild the image after changes:
-
-```bash
-docker build -t ferroos-dev .
-```
-
-To stop and remove the container:
+Any time you change the Dockerfile or any files used inside it (like `init.sh` or `frontend/init.sh`), rebuild the image with:
 
 ```bash
-CTRL+C
+docker build -t ferroos/core .
 ```
+
+> Tip: If you're mounting `frontend/` as a volume for live editing, you don’t need to rebuild unless you change `Dockerfile` or `init.sh`.
 
 ---
 
@@ -116,3 +115,4 @@ CTRL+C
 - You can iterate on `init.sh` and `frontend/init.sh` as if they were running on an actual device
 - No flashing or SD card required for basic flow testing
 - This is a simulation of the boot and UI experience only (no GPU or framebuffer yet)
+- Versioned image tags will be supported later using GitHub tag parsing
